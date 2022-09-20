@@ -34,6 +34,10 @@
 <div class="wrapper">
 </div>
 @if (Auth::user())
+  @include('modulos.cabecera')
+  @if (auth()->user()->rol == "Secretaria")
+      @include('modulos.menuSecretaria')
+  @endif
   @yield('content')
 @else
   @yield('contenido')

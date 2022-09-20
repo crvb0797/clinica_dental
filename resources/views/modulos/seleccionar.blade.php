@@ -18,7 +18,7 @@
                 <div class="icon">
                     <i class="fa fa-female"></i>
                 </div>
-                <a href="ingresar" class="small-box-footer">
+                <a href="{{route('login')}}" class="small-box-footer">
                     Ingresar <div class="fa fa-arrow-circle-right"></div>
                 </a>
             </div>

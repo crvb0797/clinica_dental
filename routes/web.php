@@ -9,9 +9,9 @@ Route::get('/', function () {
     return view('modulos.seleccionar');
 });
 
-Route::get('/ingresar', function () {
+/* Route::get('/ingresar', function () {
     return view('modulos.ingresar');
-});
+}); */
 
 Auth::routes();
 

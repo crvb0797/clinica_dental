@@ -8,17 +8,17 @@
 
         <div class="login-box-body">
             <p class="login-box-msg">Ingresar al sistema</p>
-            <form metohd="POST" action="{{ route('inicio') }}">
+            <form metohd="post" action="{{ route('login') }}">
                 @csrf
                 {{-- CORREO DEL USUARIO --}}
                 <div class="form-group has-feedback">
-                    <input type="email" name="Correo Electrónico" class="form-control" required value="">
+                    <input type="email" name="email" class="form-control" required value="">
                     <span class="glyphicon glyphicon-user form-control-feedback"></span>
                 </div>
 
                 {{-- PASSWORD --}}
                 <div class="form-group has-feedback">
-                    <input type="password" name="Contraseña" class="form-control" required value="">
+                    <input type="password" name="password" class="form-control" required value="">
                     <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                 </div>
 
