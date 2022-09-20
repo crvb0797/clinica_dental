@@ -33,8 +33,12 @@
 
 <div class="wrapper">
 </div>
+@if (Auth::user())
+  @yield('content')
+@else
+  @yield('contenido')
+@endif
 
-@yield('contenido')
 <!-- jQuery 3 -->
 <script src="{{asset('bower_components/jquery/dist/jquery.min.js')}}"></script>
 <!-- jQuery UI 1.11.4 -->
