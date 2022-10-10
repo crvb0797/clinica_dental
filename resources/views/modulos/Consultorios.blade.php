@@ -24,13 +24,15 @@
                 <div class="box-body">
                     @foreach ($consultorios as $consultorio)
                         <div class="row">
-                            <form action="" method="POST">
+                            <form action="{{url('consultorio/' .$consultorio->id)}}" method="POST">
+                                @csrf
+                                @method('PUT')
                                 <div class="col-md-4">
                                     <input type="text" class="form-control" name="consultorioE" value="{{$consultorio->consultorio}}">
                                 </div>
 
                                 <div class="col-md-1">
-                                    <button class="btn btn-success" type="submit">Guardar</button>
+                                    <button class="btn btn-success" type="submit">Editar</button>
                                 </div>
                             </form>
                             
