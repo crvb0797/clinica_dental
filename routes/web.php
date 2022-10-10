@@ -20,3 +20,4 @@ Route::get('/inicio', [InicioController::class, 'index']);
 
 /* Consultorios */
 Route::get('/consultorios', [ConsultoriosController::class, 'index']);
+Route::post('/consultorios', [ConsultoriosController::class, 'store']);

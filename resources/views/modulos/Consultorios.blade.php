@@ -11,6 +11,7 @@
                 <br>
 
                 <form method="POST" action="">
+                    @csrf
                     <div class="col-md-6 col-xs-12">
                         <input type="text" class="form-control" name="consultorio" placeholder="Ingrese nuevo consultorio" required>
                     </div>
@@ -21,23 +22,27 @@
                 <br>
 
                 <div class="box-body">
-                    <div class="row">
-                        <form action="" method="POST">
-                            <div class="col-md-4">
-                                <input type="text" class="form-control" name="consultorioE" value="">
-                            </div>
-
-                            <div class="col-md-1">
-                                <button class="btn btn-success" type="submit">Guardar</button>
-                            </div>
-                        </form>
-                        
-                        <div class="col-md-1">
+                    @foreach ($consultorios as $consultorio)
+                        <div class="row">
                             <form action="" method="POST">
-                                <button type="submit" class="btn btn-danger">Eliminar</button>
+                                <div class="col-md-4">
+                                    <input type="text" class="form-control" name="consultorioE" value="{{$consultorio->consultorio}}">
+                                </div>
+
+                                <div class="col-md-1">
+                                    <button class="btn btn-success" type="submit">Guardar</button>
+                                </div>
                             </form>
+                            
+                            <div class="col-md-1">
+                                <form action="" method="POST">
+                                    <button type="submit" class="btn btn-danger">Eliminar</button>
+                                </form>
+                            </div>
                         </div>
-                    </div>
+
+                        <br>
+                    @endforeach
                 </div>
             </div>
         </section>

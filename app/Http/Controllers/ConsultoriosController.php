@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Consultorios;
 use Illuminate\Http\Request;
+use PhpParser\Node\Stmt\Const_;
 
 class ConsultoriosController extends Controller
 {
@@ -17,28 +18,16 @@ class ConsultoriosController extends Controller
         if(auth()->user()->rol != "Administrador" && auth()->user()->rol != "Secretaria"){
             return redirect('inicio');
         }
-        return view('modulos.Consultorios');
+
+        $consultorios = Consultorios::all();
+        return view('modulos.Consultorios')->with('consultorios', $consultorios);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    
     public function store(Request $request)
     {
-        //
+        Consultorios::create(['consultorio' => request('consultorio')]);
+        return redirect('consultorios');
     }
 
     /**
