@@ -1,0 +1,45 @@
+@extends('plantilla')
+
+@section('content')
+    <div class="content-wrapper">
+        <section class="content-header">
+            <h1>Gestor de consultorios</h1>
+        </section>
+
+        <section class="content">
+            <div class="box">
+                <br>
+
+                <form method="POST" action="">
+                    <div class="col-md-6 col-xs-12">
+                        <input type="text" class="form-control" name="consultorio" placeholder="Ingrese nuevo consultorio" required>
+                    </div>
+
+                    <button class="btn btn-primary" type="submit">Agregar consultorio</button>
+                </form>
+
+                <br>
+
+                <div class="box-body">
+                    <div class="row">
+                        <form action="" method="POST">
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" name="consultorioE" value="">
+                            </div>
+
+                            <div class="col-md-1">
+                                <button class="btn btn-success" type="submit">Guardar</button>
+                            </div>
+                        </form>
+                        
+                        <div class="col-md-1">
+                            <form action="" method="POST">
+                                <button type="submit" class="btn btn-danger">Eliminar</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+@endsection
