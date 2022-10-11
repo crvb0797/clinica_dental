@@ -52,7 +52,7 @@ class PacientesController extends Controller
             'documento' => ['required'],
             'password' => ['required', 'string', 'min:3'],
             'email' => ['required', 'string', 'email', 'unique:users'],
-            'telefono' => ['required']
+            'telefono' => ['string']
         ]);
 
         Pacientes::create([
@@ -134,17 +134,13 @@ class PacientesController extends Controller
             ]);
         }
 
-        return redirect('pacientes');
+        return redirect('pacientes')->with('actualizadoP', 'si');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Pacientes  $pacientes
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Pacientes $pacientes)
+    public function destroy($id)
     {
-        //
+        Pacientes::destroy($id);
+
+        return redirect('pacientes');
     }
 }

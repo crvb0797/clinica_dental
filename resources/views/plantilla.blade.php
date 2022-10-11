@@ -126,7 +126,18 @@
       'success'
     )
   </script>
+
+@elseif(session('actualizadoP') == "si")
+<script>
+  Swal.fire(
+    'El paciente ha sido actualizado',
+    '',
+    'success'
+  )
+</script>
 @endif
+
+
 
 <script>
   $('.table').on('click', '.EliminarDoctor', function(){
@@ -142,6 +153,25 @@
     }).then((result) => {
       if(result.isConfirmed){
         window.location = "eliminar-doctor/"+Did;
+      }
+    }) 
+  });
+
+
+  $('.table').on('click', '.EliminarPaciente', function(){
+    var Pid = $(this).attr('Pid');
+    var Paciente = $(this).attr('Paciente');
+    Swal.fire({
+      title: '¿Desea eliminar este Paciente '+Paciente+'?',
+      icon: 'warning',
+      showCancelButton: true,
+      cancelButtonText: 'Cancelar',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Elminar',
+      confirmButtonColor: '#3085d6'
+    }).then((result) => {
+      if(result.isConfirmed){
+        window.location = "eliminar-paciente/"+Pid;
       }
     }) 
   })

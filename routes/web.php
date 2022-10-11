@@ -37,6 +37,8 @@ Route::get('/crear-paciente', [PacientesController::class, 'create']);
 Route::post('/crear-paciente', [PacientesController::class, 'store']);
 Route::get('/editar-paciente/{id}', [PacientesController::class, 'edit']);
 Route::put('actualizar-paciente/{paciente}', [PacientesController::class, 'update']);
+Route::get('eliminar-paciente/{id}', [PacientesController::class, 'destroy']);
+
 
 
 

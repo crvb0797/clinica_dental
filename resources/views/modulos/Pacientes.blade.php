@@ -41,7 +41,7 @@
 
                                     <td>
                                         <a href="editar-paciente/{{$paciente->id}}"><button type="submit" class="btn btn-success"><i class="fa fa-pencil"></i></button></a>
-                                        <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                                        <button type="submit" class="EliminarPaciente btn btn-danger" Pid="{{$paciente->id}}" Paciente="{{$paciente->name}}"><i class="fa fa-trash"></i></button>
                                     </td>
                                 </tr>
                             @endforeach
