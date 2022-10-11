@@ -39,14 +39,9 @@ class ConsultoriosController extends Controller
         return redirect('consultorios');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Consultorios  $consultorios
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Consultorios $consultorios)
+    public function destroy($id)
     {
-        //
+        DB::table('consultorios')->whereId($id)->delete();
+        return redirect('consultorios');
     }
 }

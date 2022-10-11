@@ -37,7 +37,9 @@
                             </form>
                             
                             <div class="col-md-1">
-                                <form action="" method="POST">
+                                <form action="{{url('eliminar-consultorio/' . $consultorio->id)}}" method="POST">
+                                    @csrf
+                                    @method('delete')
                                     <button type="submit" class="btn btn-danger">Eliminar</button>
                                 </form>
                             </div>

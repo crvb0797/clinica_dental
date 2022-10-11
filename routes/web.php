@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ConsultoriosController;
+use App\Http\Controllers\DoctoresController;
 use App\Http\Controllers\InicioController;
 use Illuminate\Support\Facades\Route;
 
@@ -22,3 +23,7 @@ Route::get('/inicio', [InicioController::class, 'index']);
 Route::get('/consultorios', [ConsultoriosController::class, 'index']);
 Route::post('/consultorios', [ConsultoriosController::class, 'store']);
 Route::put('/consultorio/{id}', [ConsultoriosController::class, 'update']);
+Route::delete('eliminar-consultorio/{id}', [ConsultoriosController::class, 'destroy']);
+
+/* Doctores */
+Route::get('/doctores', [DoctoresController::class, 'index']);
