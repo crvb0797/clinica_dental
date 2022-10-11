@@ -26,6 +26,10 @@
   <!-- Daterange picker -->
   <link rel="stylesheet" href="{{asset('bower_components/bootstrap-daterangepicker/daterangepicker.css')}}">
 
+  {{-- DATATABLES --}}
+  <link rel="stylesheet" href="{{asset('bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css')}}">
+  <link rel="stylesheet" href="{{asset('bower_components/datatables.net-bs/css/responsive.bootstrap.min.css')}}">
+
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
@@ -75,5 +79,65 @@
 <script src="{{asset('dist/js/pages/dashboard.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{asset('dist/js/demo.js')}}"></script>
+
+{{-- DATATABLES --}}
+<script src="{{asset('bower_components/datatables.net/js/jquery.dataTables.min.js')}}"></script>
+<script src="{{asset('bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
+<script src="{{asset('bower_components/datatables.net-bs/js/dataTables.responsive.min.js')}}"></script>
+<script src="{{asset('bower_components/datatables.net-bs/js/responsive.bootstrap.min.js')}}"></script>
+
+<script>
+  $(".table").DataTable({
+    "language":{
+      "sSearch": "Buscar:",
+      "sEmptyTable": "No hay datos en la tabla",
+      "sZeroRecords": "No se encontraron resultados",
+      "sInfo": "Mostrando registros del _START_ al _END_ de un total _TOTAL_",
+      "sInfoEmpty": "Mostrando resgistros del 0 al 0 de un total de 0",
+      "sInfoFiltered": "(filtando de un total de _MAX_ resgistros)",
+      "oPaginate":{
+        "sFirst": "Primero",
+        "sLast": "Ultimo",
+        "sNext": "Siguiente",
+        "sPrevious": "Anterior",
+      },
+      "sLoadingRecords": "cargando...",
+      "sLengthMenu": "Mostrar _MENU_ registros",
+    }
+  });
+</script>
+
+{{-- SWEETALERT2 --}}
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+@if (session('registrado') == "si")
+  <script>
+    Swal.fire(
+      'El Doctor ha sido registrado',
+      '',
+      'success'
+    )
+  </script>
+@endif
+
+<script>
+  $('.table').on('click', '.EliminarDoctor', function(){
+    var Did = $(this).attr('Did');
+    Swal.fire({
+      title: '¿Desea eliminar este Doctor?',
+      icon: 'warning',
+      showCancelButton: true,
+      cancelButtonText: 'Cancelar',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Elminar',
+      confirmButtonColor: '#3085d6'
+    }).then((result) => {
+      if(result.isConfirmed){
+        window.location = "eliminar-doctor/"+Did;
+      }
+    }) 
+  })
+</script>
+
+
 </body>
 </html>

@@ -49,51 +49,14 @@ class DoctoresController extends Controller
             'rol' => 'Doctor',
         ]);
 
+        return redirect('doctores')->with('registrado', 'si');
+    }
+
+    
+    public function destroy($id)
+    {
+        DB::table('users')->whereId($id)->delete();
+
         return redirect('doctores');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Doctores  $doctores
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Doctores $doctores)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Doctores  $doctores
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Doctores $doctores)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Doctores  $doctores
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Doctores $doctores)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Doctores  $doctores
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Doctores $doctores)
-    {
-        //
     }
 }

@@ -13,14 +13,13 @@
                 </div>
 
                 <div class="box-body">
-                    <table class="table table-bordered table-hover table-striped">
+                    <table class="table table-bordered table-hover table-striped dt-responsive">
                         <thead>
                             <tr>
                                 <th>ID</th>
                                 <th>Nombre y Apellido</th>
                                 <th>Consultorio</th>
                                 <th>Email</th>
-                                <th>Documento</th>
                                 <th>Teléfono</th>
 
                                 <th></th>
@@ -37,12 +36,6 @@
                                         <td>{{$doctor->Consultorio->consultorio}}</td>
                                         <td>{{$doctor->email}}</td>
 
-                                        @if ($doctor->documento != "")
-                                            <td>{{$doctor->documento}}</td>
-                                        @else
-                                            <td>NA</td>
-                                        @endif
-
                                         @if ($doctor->telefono != "")
                                             <td>{{$doctor->telefono}}</td>
                                         @else
@@ -50,7 +43,7 @@
                                         @endif
 
                                         <td>
-                                            <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                                            <button class="btn btn-danger EliminarDoctor" Did="{{$doctor->id}}"><i class="fa fa-trash"></i></button>
                                         </td>
                                     </tr>
                                 @endif
