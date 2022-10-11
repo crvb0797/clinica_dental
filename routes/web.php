@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CitasController;
 use App\Http\Controllers\ConsultoriosController;
 use App\Http\Controllers\DoctoresController;
 use App\Http\Controllers\InicioController;
@@ -39,6 +40,7 @@ Route::get('/editar-paciente/{id}', [PacientesController::class, 'edit']);
 Route::put('actualizar-paciente/{paciente}', [PacientesController::class, 'update']);
 Route::get('eliminar-paciente/{id}', [PacientesController::class, 'destroy']);
 
-
+/* Citas */
+Route::get('citas/{id}', [CitasController::class, 'index']);
 
 

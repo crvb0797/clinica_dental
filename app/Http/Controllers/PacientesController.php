@@ -32,7 +32,7 @@ class PacientesController extends Controller
      */
     public function create()
     {
-        if(auth()->user()->rol != "Administrador" && auth()->user()->rol != "Secretaria"){
+        if(auth()->user()->rol != "Administrador" && auth()->user()->rol != "Secretaria"  && auth()->user()->rol != "Doctor"){
             return redirect('inicio');
         }
 
