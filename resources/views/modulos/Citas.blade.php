@@ -49,7 +49,9 @@
 
         <section class="content">
             <div class="box">
-                
+                <div class="box-body">
+                    <div id="calendario"></div>
+                </div>
             </div>
         </section>
     </div>

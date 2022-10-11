@@ -30,14 +30,18 @@
   <link rel="stylesheet" href="{{asset('bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css')}}">
   <link rel="stylesheet" href="{{asset('bower_components/datatables.net-bs/css/responsive.bootstrap.min.css')}}">
 
+  {{-- FULLCALENDAR --}}
+  <link rel="stylesheet" href="{{asset('bower_components/fullcalendar/dist/fullcalendar.min.css')}}">
+  <link rel="stylesheet" href="{{asset('bower_components/fullcalendar/dist/fullcalendar.print.css')}}" media="print">
+
+
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
 <body class="hold-transition skin-blue sidebar-mini login-page">
 
-<div class="wrapper">
-</div>
 @if (Auth::user())
+<div class="wrapper">
   @include('modulos.cabecera')
   @if (auth()->user()->rol == "Secretaria")
       @include('modulos.menuSecretaria')
@@ -45,6 +49,7 @@
     @include('modulos.menuDoctor')
   @endif
   @yield('content')
+</div>
 @else
   @yield('contenido')
 @endif
@@ -87,6 +92,12 @@
 <script src="{{asset('bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
 <script src="{{asset('bower_components/datatables.net-bs/js/dataTables.responsive.min.js')}}"></script>
 <script src="{{asset('bower_components/datatables.net-bs/js/responsive.bootstrap.min.js')}}"></script>
+
+{{-- FULLCALENDAR --}}
+<script src="{{asset('bower_components/fullcalendar/dist/fullcalendar.min.js')}}"></script>
+<script src="{{asset('bower_components/fullcalendar/dist/locale/es.js')}}"></script>
+<script src="{{asset('bower_components/moment/moment.js')}}"></script>
+
 
 <script>
   $(".table").DataTable({
@@ -177,6 +188,22 @@
       }
     }) 
   })
+</script>
+
+<script>
+  var date = new Date();
+  var d = date.getDate();
+  var m = date.getMonth();
+  var y = date.getFullYear();
+
+  $('#calendario').fullCalendar({
+    defaultView: 'agendaWeek',
+    hiddenDays: [0,6],
+
+    scrollTime: "08:00",
+    minTime: "08:00",
+    maxTime: "18:00"
+  });
 </script>
 
 
