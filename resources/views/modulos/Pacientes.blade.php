@@ -9,7 +9,7 @@
         <section class="content">
             <div class="box">
                 <div class="box-header">
-                    <button class="btn btn-primary btn-lg">Agregar paciente</button>
+                    <a href="crear-paciente"><button class="btn btn-primary btn-lg">Agregar paciente</button></a>
                 </div>
 
                 <div class="box-body">
@@ -27,19 +27,25 @@
                         </thead>
 
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Karen Villatoro</td>
-                                <td>karen@villatoro.com</td>
-                                <td>5555555</td>
-                                <td>2899031430505</td>
+                            @foreach ($pacientes as $paciente)
+                                <tr>
+                                    <td>{{$paciente->id}}</td>
+                                    <td>{{$paciente->name}}</td>
+                                    <td>{{$paciente->email}}</td>
+                                    @if ($paciente->telefono != "")
+                                        <td>{{$paciente->telefono}}</td>
+                                    @else
+                                        <td>NA</td>
+                                    @endif
+                                    <td>{{$paciente->documento}}</td>
 
-                                <td>
-                                    <button type="submit" class="btn btn-success"><i class="fa fa-pencil"></i></button>
-                                    <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i></button>
-                                </td>
+                                    <td>
+                                        <a href="editar-paciente/{{$paciente->id}}"><button type="submit" class="btn btn-success"><i class="fa fa-pencil"></i></button></a>
+                                        <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                            @endforeach
 
-                            </tr>
                         </tbody>
                     </table>
                 </div>

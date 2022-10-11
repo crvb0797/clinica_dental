@@ -8,4 +8,19 @@ use Illuminate\Database\Eloquent\Model;
 class Pacientes extends Model
 {
     use HasFactory;
+
+    protected $table = 'users';
+
+    protected $fillable = [
+        'name',
+        'email',
+        'password',
+        'sexo',
+        'id_consultorio',
+        'documento',
+        'telefono',
+        'rol',
+    ];
+
+    public $timestamps = false;
 }
