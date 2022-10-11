@@ -32,12 +32,23 @@ class CitasController extends Controller
 
         return redirect('citas/'.auth()->user()->id);
     }
+
+    public function EditarHorario(Request $request)
+    {
+        $datos = request();
+
+        DB::table('horarios')->where('id', $datos['id'])->update(['horaInicio' => $datos['horaInicioE'], 'horaFin' => $datos['horaFinE']]);
+
+        return redirect('citas/'.auth()->user()->id);
+    }
    
-   
+
     public function store(Request $request)
     {
         //
     }
+
+    
 
     /**
      * Display the specified resource.

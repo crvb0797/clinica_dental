@@ -25,20 +25,21 @@
                 </form>
             @else
                 @foreach ($horarios as $hora)
-                <form action="" method="POST">
+                <form action="{{url('editar-horario/'.$hora->id)}}" method="POST">
                     @csrf
+                    @method('PUT')
                     <div class="row">
                         <div class="col-md-2">
-                            Desde <input type="time" class="form-control" name="horaInicio" value="{{$hora->horaInicio}}">
+                            Desde <input type="time" class="form-control" name="horaInicioE" value="{{$hora->horaInicio}}">
                         </div>
                         <div class="col-md-2">
-                            Hasta <input type="time" class="form-control" name="horaFin" value="{{$hora->horaFin}}">
+                            Hasta <input type="time" class="form-control" name="horaFinE" value="{{$hora->horaFin}}">
                         </div>
     
                         <br>
     
                         <div class="col-md-1">
-                            <button class="btn btn-primary" type="submit">Guardar <i class="fa fa-plus"></i></button>
+                            <button class="btn btn-primary" type="submit">Editar <i class="fa fa-pencil"></i></button>
                         </div>
                     </div>
                 </form>    
