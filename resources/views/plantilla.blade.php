@@ -219,6 +219,19 @@ $('#select2').select2();
       defaultView: 'agendaWeek',
       hiddenDays: [0,6],
 
+    events:[
+      @foreach($citas as $cita)
+        @if(auth()->user()->rol == "Doctor")
+          {
+            id: '{{$cita->id}}',
+            title: '{{$cita->PAC->name}}',
+            start: '{{$cita->FyHinicio}}',
+            end: '{{$cita->FyHfinal}}'
+          },
+        @endif
+      @endforeach
+    ],  
+
       @if($horarios != null)
         scrollTime: "{{$hora->horaInicio}}",
         minTime: "{{$hora->horaInicio}}",

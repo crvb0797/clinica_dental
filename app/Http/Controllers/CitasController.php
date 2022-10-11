@@ -22,8 +22,9 @@ class CitasController extends Controller
 
         $pacientes = Pacientes::all();
         $horarios = DB::select('select * from horarios where id_doctor = '.$id);
+        $citas = Citas::all()->where('id_doctor', $id);
 
-        return view('modulos.Citas', compact('horarios', 'pacientes'));
+        return view('modulos.Citas', compact('horarios', 'pacientes', 'citas'));
     }
 
     public function HorarioDoctor(Request $request)

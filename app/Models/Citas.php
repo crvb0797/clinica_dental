@@ -19,4 +19,9 @@ class Citas extends Model
     ];
 
     public $timestamps = false;
+
+    public function PAC()
+    {
+        return $this->belongsTo(Pacientes::class, 'id_paciente');
+    }
 }
