@@ -53,13 +53,59 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <form action="" method="POST">
+                    @csrf
                     <div class="modal-body">
                         <div class="box-body">
                             <div class="form-group">
                                 <h2>Nombre y apellido: </h2>
-                                <input type="text" class="form-control input-lg" name="name">
+                                <input type="text" class="form-control input-lg" name="name" required>
+                                @error('name')
+                                    <div class="alert alert-danger">Insertar un nombre valido</div>
+                                @enderror
+                            </div>
+
+                            <div class="form-group">
+                                <h2>Genero: </h2>
+                                <select class="form-control input-lg" name="sexo" required>
+                                    <option value="">Seleccionar genero</option>
+                                    <option value="Femenino">Femenino</option>
+                                    <option value="Masculino">Masculino</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <h2>Consultorio: </h2>
+                                <select class="form-control input-lg" name="id_consultorio" required>
+                                    <option value="">Seleccionar consultorio</option>
+                                    @foreach ($consultorios as $consultorio)
+                                        <option value="{{$consultorio->id}}">{{$consultorio->consultorio}}</option>
+                                    @endforeach
+                                </select>
+                                @error('id_consultorio')
+                                    <div class="alert alert-danger">{{error}}</div>
+                                @enderror
+                            </div>
+
+                            <div class="form-group">
+                                <h2>Email: </h2>
+                                <input type="email" class="form-control input-lg" name="email" value="{{old('email')}}" required>
+                                @error('email')
+                                    <div class="alert alert-danger">Insertar un correo valido</div>
+                                @enderror
+                            </div>
+
+                            <div class="form-group">
+                                <h2>Contraseña: </h2>
+                                <input type="text" class="form-control input-lg" name="password" required>
+                                @error('pasword')
+                                    <div class="alert alert-danger">Insertar una contraseña valida</div>
+                                @enderror
                             </div>
                         </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Crear <i class="fa fa-pencil"></i></button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
                     </div>
                 </form>
             </div>

@@ -27,3 +27,4 @@ Route::delete('eliminar-consultorio/{id}', [ConsultoriosController::class, 'dest
 
 /* Doctores */
 Route::get('/doctores', [DoctoresController::class, 'index']);
+Route::post('/doctores', [DoctoresController::class, 'store']);

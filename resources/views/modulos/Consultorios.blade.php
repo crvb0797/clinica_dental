@@ -32,7 +32,7 @@
                                 </div>
 
                                 <div class="col-md-1">
-                                    <button class="btn btn-success" type="submit">Editar</button>
+                                    <button class="btn btn-success" type="submit">Editar <i class="fa fa-pencil"></i></button>
                                 </div>
                             </form>
                             
@@ -40,7 +40,7 @@
                                 <form action="{{url('eliminar-consultorio/' . $consultorio->id)}}" method="POST">
                                     @csrf
                                     @method('delete')
-                                    <button type="submit" class="btn btn-danger">Eliminar</button>
+                                    <button type="submit" class="btn btn-danger">Eliminar <i class="fa fa-pencil"></i></button>
                                 </form>
                             </div>
                         </div>
