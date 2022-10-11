@@ -44,4 +44,12 @@ class ConsultoriosController extends Controller
         DB::table('consultorios')->whereId($id)->delete();
         return redirect('consultorios');
     }
+
+    /* Visualizar consultorios como pacientes */
+    public function verConsultorios()
+    {
+       $consultorios = Consultorios::all();
+       
+       return view('modulos.Ver-Consultorios', compact('consultorios'));
+    }
 }

@@ -44,13 +44,13 @@
         <div class="col-lg-3 col-xs-6">
             <div class="small-box bg-yellow">
                 <div class="inner">
-                    <h3>{{route('login')}}</h3>
+                    <h3>Paciente</h3>
                     <p>Inicie sesión</p>
                 </div>
                 <div class="icon">
                     <i class="fa fa-users"></i>
                 </div>
-                <a href="ingresar" class="small-box-footer">
+                <a href="{{route('login')}}" class="small-box-footer">
                     Ingresar <div class="fa fa-arrow-circle-right"></div>
                 </a>
             </div>

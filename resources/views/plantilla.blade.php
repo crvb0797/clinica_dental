@@ -51,6 +51,8 @@
       @include('modulos.menuSecretaria')
   @elseif(auth()->user()->rol == "Doctor")
     @include('modulos.menuDoctor')
+  @elseif(auth()->user()->rol == "Paciente")
+    @include('modulos.menuPaciente')
   @endif
   @yield('content')
 </div>

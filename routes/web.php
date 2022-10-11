@@ -5,6 +5,8 @@ use App\Http\Controllers\ConsultoriosController;
 use App\Http\Controllers\DoctoresController;
 use App\Http\Controllers\InicioController;
 use App\Http\Controllers\PacientesController;
+use App\Models\Consultorios;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 
@@ -47,7 +49,8 @@ Route::put('editar-horario/{id}', [CitasController::class, 'EditarHorario']);
 Route::post('/citas/{id_doctor}', [CitasController::class, 'CrearCita']);
 Route::delete('borrar-cita', [CitasController::class, 'destroy']);
 
-
+/* Ver consultorios como paciente */
+Route::get('/ver-consultorios', [ConsultoriosController::class, 'verConsultorios']);
 
 
 
