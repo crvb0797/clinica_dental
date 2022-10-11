@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Citas;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CitasController extends Controller
 {
@@ -18,25 +19,21 @@ class CitasController extends Controller
             return redirect('inicio');
         }
 
-        return view('modulos.Citas');
+        $horarios = DB::select('select * from horarios where id_doctor = '.$id);
+
+        return view('modulos.Citas')->with('horarios', $horarios);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function HorarioDoctor(Request $request)
     {
-        //
-    }
+        $datos = request();
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+        DB::table('horarios')->insert(['id_doctor' => auth()->user()->id, 'horaInicio' => $datos["horaInicio"], 'horaFin' => $datos["horaFin"]]);
+
+        return redirect('citas/'.auth()->user()->id);
+    }
+   
+   
     public function store(Request $request)
     {
         //
