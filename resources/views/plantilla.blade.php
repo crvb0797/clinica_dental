@@ -223,8 +223,31 @@
         var HF = horaFinal+":00:00"
       }
 
-      $('#CitaModal').modal();
-      $("#Fecha").val(HF);
+      n = new Date();
+      y = n.getFullYear();
+      m = n.getMonth()+1;
+      d = n.getDate();
+
+      if(m < 10) {
+          M = "0"+m;
+        if (d < 10) {
+          D = "0"+d;
+          diaActual = y + "-" + m + "-" + D;
+        }else{
+          var diaActual = y + "-" + m + "-" + d;
+        }
+      }else{
+        diaActual = y + "-" + m + "-" + d;
+      }
+
+      if(diaActual <= fecha[0]){
+       $('#CitaModal').modal();
+      }
+
+      $("#Fecha").val(fecha[0]);
+      $("#Hora").val(hora1[0]+":00:00");
+      $("#FyHinicio").val(fecha[0]+ " " +hora1[0]+":00:00");
+      $("#FyHfinal").val(fecha[0]+ " " +HF);
     }
   });
 </script>

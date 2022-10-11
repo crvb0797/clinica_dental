@@ -65,7 +65,14 @@
                         <div class="box-body">
                             <div class="form-group">
                                 <h2>Seleccionar Paciente</h2>
-                                <select name="" id=""></select>
+                                <select name="id_paciente" required>
+                                    <option value="">Selecciónar pacinete...</option>
+                                    @foreach ($pacientes as $paciente)
+                                        @if ($paciente->rol == "Paciente")
+                                            <option value="{{$paciente->id}}">{{$paciente->name}} - {{$paciente->documento}}</option>
+                                        @endif
+                                    @endforeach
+                                </select>
                             </div>
 
                             <div class="form-group">
@@ -76,6 +83,9 @@
                             <div class="form-group">
                                 <h2>Hora</h2>
                                 <input type="text" class="form-control input-lg" id="Hora" readonly></input>
+
+                                <input type="hidden"  name="FyHinicio" class="form-control input-lg" id="FyHinicio" readonly></input>
+                                <input type="hidden" name="FyHfinal"  class="form-control input-lg" id="FyHfinal" readonly></input>
                             </div>
                         </div>
                     </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Citas;
+use App\Models\Pacientes;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -19,9 +20,10 @@ class CitasController extends Controller
             return redirect('inicio');
         }
 
+        $pacientes = Pacientes::all();
         $horarios = DB::select('select * from horarios where id_doctor = '.$id);
 
-        return view('modulos.Citas')->with('horarios', $horarios);
+        return view('modulos.Citas', compact('horarios', 'pacientes'));
     }
 
     public function HorarioDoctor(Request $request)
