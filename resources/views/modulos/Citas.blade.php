@@ -66,7 +66,7 @@
                         <div class="box-body">
                             <div class="form-group">
                                 <h2>Seleccionar Paciente</h2>
-                                <select name="id_paciente" required>
+                                <select id="select2" name="id_paciente" required style="width: 100%">
                                     <option value="">Selecciónar pacinete...</option>
                                     @foreach ($pacientes as $paciente)
                                         @if ($paciente->rol == "Paciente")
