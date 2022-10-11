@@ -38,7 +38,7 @@
                                                 </a>
                                             </td>
                                         @else
-                                            <td>Aun no registrado</td>
+                                            <td class="text-danger">Aun no registrado</td>
                                             <td>
                                                 <a href="#">
                                                     <button class="btn btn-primary" disabled>Agenda de citas</button>
