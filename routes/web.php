@@ -45,6 +45,8 @@ Route::get('citas/{id}', [CitasController::class, 'index']);
 Route::post('/horarios/', [CitasController::class, 'HorarioDoctor']);
 Route::put('editar-horario/{id}', [CitasController::class, 'EditarHorario']);
 Route::post('/citas/{id_doctor}', [CitasController::class, 'CrearCita']);
+Route::delete('borrar-cita', [CitasController::class, 'destroy']);
+
 
 
 

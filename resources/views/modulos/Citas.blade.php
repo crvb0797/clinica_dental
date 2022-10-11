@@ -101,4 +101,34 @@
             </div>
         </div>
     </div>
+
+
+    <div class="modal fade" id="EventoModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form action="{{url('borrar-cita')}}" method="POST">
+                    @csrf
+                    @method('delete')
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <h2>Paciente: </h2>
+                            <h4 id="paciente"></h4>
+
+                            <input type="hidden" id="idCita" name="idCita">
+
+                            <?php
+                                $exp = explode("/", $_SERVER["REQUEST_URI"]);
+                                echo '<input type="hidden" name="idDoctor" value="'.$exp[2].'">';
+                            ?>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-warning">Cancelar cita <i class="fa fa-warning"></i></button>
+                        <button  type="submit" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 @endsection

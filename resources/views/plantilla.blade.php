@@ -287,6 +287,15 @@ $('#select2').select2();
         $("#Hora").val(hora1[0]+":00:00");
         $("#FyHinicio").val(fecha[0]+ " " +hora1[0]+":00:00");
         $("#FyHfinal").val(fecha[0]+ " " +HF);
+      },
+
+      eventClick:function(calEvent,jsEvent,view){
+        if ("{{auth()->user()->rol}}" == "Doctor") {
+          $('#EventoModal').modal();
+        }
+
+        $('#paciente').html(calEvent.title);
+        $('#idCita').val(calEvent.id);
       }
     });
   </script>

@@ -56,6 +56,8 @@ class CitasController extends Controller
 
     public function destroy(Citas $citas)
     {
-        //
+        DB::table('citas')->whereId(request('idCita'))->delete();
+
+        return redirect('citas/'.request('idDoctor'));
     }
 }
