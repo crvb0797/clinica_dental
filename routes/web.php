@@ -42,8 +42,10 @@ Route::get('eliminar-paciente/{id}', [PacientesController::class, 'destroy']);
 
 /* Citas */
 Route::get('citas/{id}', [CitasController::class, 'index']);
-Route::post('/citas/{id}', [CitasController::class, 'HorarioDoctor']);
+Route::post('/horarios/', [CitasController::class, 'HorarioDoctor']);
 Route::put('editar-horario/{id}', [CitasController::class, 'EditarHorario']);
+Route::post('/citas/{id_doctor}', [CitasController::class, 'CrearCita']);
+
 
 
 

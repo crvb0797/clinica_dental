@@ -200,9 +200,16 @@
     defaultView: 'agendaWeek',
     hiddenDays: [0,6],
 
-    scrollTime: "{{$hora->horaInicio}}",
-    minTime: "{{$hora->horaInicio}}",
-    maxTime: "{{$hora->horaFin}}",
+    @if($horarios != null)
+      scrollTime: "{{$hora->horaInicio}}",
+      minTime: "{{$hora->horaInicio}}",
+      maxTime: "{{$hora->horaFin}}",
+    @else
+    scrollTime: null,
+      minTime: null,
+      maxTime: null,
+    @endif
+
 
     dayClick:function(date,jsEvent,view){
 

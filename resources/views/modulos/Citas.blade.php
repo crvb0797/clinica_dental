@@ -6,7 +6,7 @@
             <h2>Horarios</h2>
 
             @if ($horarios == null)
-                <form action="" method="POST">
+                <form action="{{url('horarios')}}" method="POST">
                     @csrf
                     <div class="row">
                         <div class="col-md-2">
@@ -61,6 +61,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <form action="" method="POST">
+                    @csrf
                     <div class="modal-body">
                         <div class="box-body">
                             <div class="form-group">
@@ -72,6 +73,9 @@
                                             <option value="{{$paciente->id}}">{{$paciente->name}} - {{$paciente->documento}}</option>
                                         @endif
                                     @endforeach
+
+                                    <input type="hidden" name="id_doctor" value="{{auth()->user()->id}}"></input>
+
                                 </select>
                             </div>
 
