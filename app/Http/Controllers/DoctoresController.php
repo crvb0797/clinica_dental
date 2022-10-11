@@ -59,4 +59,13 @@ class DoctoresController extends Controller
 
         return redirect('doctores');
     }
+
+    public function verDoctores($id)
+    {
+        $consultorio = Consultorios::find($id);
+        $doctores = DB::select('select * from users where id_consultorio = '.$id);
+        $horarios = DB::select('select * from horarios');
+
+        return view("modulos.Ver-Doctores", compact('consultorio', 'doctores', 'horarios'));
+    }
 }

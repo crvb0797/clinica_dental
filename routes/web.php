@@ -52,5 +52,8 @@ Route::delete('borrar-cita', [CitasController::class, 'destroy']);
 /* Ver consultorios como paciente */
 Route::get('/ver-consultorios', [ConsultoriosController::class, 'verConsultorios']);
 
+/* Ver doctores como pacientes */
+
+Route::get('/ver-doctores/{id}', [DoctoresController::class, 'verDoctores']);
 
 

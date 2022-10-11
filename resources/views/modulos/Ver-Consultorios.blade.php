@@ -12,7 +12,7 @@
                     @foreach ($consultorios as $consultorio)
                         
                         <div class="col-lg-3 col-xs-6">
-                            <a href="">
+                            <a href="ver-doctores/{{$consultorio->id}}">
                                 <div class="small-box bg-aqua">
                                     <div class="inner">
                                         <h3>{{$consultorio->consultorio}}</h3>
