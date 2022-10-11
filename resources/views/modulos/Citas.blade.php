@@ -55,4 +55,36 @@
             </div>
         </section>
     </div>
+
+    {{-- Modal --}}
+    <div class="modal fade" id="CitaModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form action="" method="POST">
+                    <div class="modal-body">
+                        <div class="box-body">
+                            <div class="form-group">
+                                <h2>Seleccionar Paciente</h2>
+                                <select name="" id=""></select>
+                            </div>
+
+                            <div class="form-group">
+                                <h2>Fecha</h2>
+                                <input type="text" class="form-control input-lg" id="Fecha" readonly></input>
+                            </div>
+
+                            <div class="form-group">
+                                <h2>Hora</h2>
+                                <input type="text" class="form-control input-lg" id="Hora" readonly></input>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button  type="submit" class="btn btn-primary">Pedir Cita</button>
+                        <button  type="submit" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 @endsection

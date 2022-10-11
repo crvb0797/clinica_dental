@@ -200,9 +200,32 @@
     defaultView: 'agendaWeek',
     hiddenDays: [0,6],
 
-    scrollTime: "08:00",
-    minTime: "08:00",
-    maxTime: "18:00"
+    scrollTime: "{{$hora->horaInicio}}",
+    minTime: "{{$hora->horaInicio}}",
+    maxTime: "{{$hora->horaFin}}",
+
+    dayClick:function(date,jsEvent,view){
+
+      var fecha = date.format();
+      var hora = ("01:00:00").split(":");
+      fecha = fecha.split("T");
+      var hora1 = (fecha[1]).split(":");
+
+      HI = parseFloat(hora1[0]);
+      HA = parseFloat(hora[0]);
+
+
+      var horaFinal = HI + HA;
+
+      if(horaFinal < 10 && horaFinal > 0){
+        var HF = "0" + horaFinal+":00:00";
+      }else{
+        var HF = horaFinal+":00:00"
+      }
+
+      $('#CitaModal').modal();
+      $("#Fecha").val(HF);
+    }
   });
 </script>
 
