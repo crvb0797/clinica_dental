@@ -28,18 +28,34 @@
                         </thead>
 
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Carlos Villatoro</td>
-                                <td>Odontología 1</td>
-                                <td>carlos@villatoro.dev</td>
-                                <td>2899021420101</td>
-                                <td>5555 - 5555</td>
+                            @foreach ($doctores as $doctor)
 
-                                <td>
-                                    <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
-                                </td>
-                            </tr>
+                                @if ($doctor->rol == "Doctor")
+                                    <tr>
+                                        <td>{{$doctor->id}}</td>
+                                        <td>{{$doctor->name}}</td>
+                                        <td>{{$doctor->Consultorio->consultorio}}</td>
+                                        <td>{{$doctor->email}}</td>
+
+                                        @if ($doctor->documento != "")
+                                            <td>{{$doctor->documento}}</td>
+                                        @else
+                                            <td>NA</td>
+                                        @endif
+
+                                        @if ($doctor->telefono != "")
+                                            <td>{{$doctor->telefono}}</td>
+                                        @else
+                                            <td>NA</td>
+                                        @endif
+
+                                        <td>
+                                            <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                                        </td>
+                                    </tr>
+                                @endif
+
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

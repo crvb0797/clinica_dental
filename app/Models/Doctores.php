@@ -23,4 +23,9 @@ class Doctores extends Model
     ];
 
     public $timestamp = false;
+
+    public function Consultorio()
+    {
+        return $this->belongsTo(Consultorios::class, 'id_consultorio');
+    }
 }
