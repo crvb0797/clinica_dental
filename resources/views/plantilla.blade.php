@@ -230,6 +230,23 @@ $('#select2').select2();
             start: '{{$cita->FyHinicio}}',
             end: '{{$cita->FyHfinal}}'
           },
+
+        @elseif(auth()->user()->rol == "Paciente")
+          @if($cita->id_paciente == auth()->user()->id)
+            {
+              id: '{{$cita->id}}',
+              title: '{{$cita->PAC->name}}',
+              start: '{{$cita->FyHinicio}}',
+              end: '{{$cita->FyHfinal}}'
+            },
+          @else
+            {
+              id: '{{$cita->id}}',
+              title: 'No disponible',
+              start: '{{$cita->FyHinicio}}',
+              end: '{{$cita->FyHfinal}}'
+            },
+          @endif
         @endif
       @endforeach
     ],  
