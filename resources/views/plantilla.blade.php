@@ -240,6 +240,14 @@
     $exp = explode('/', $_SERVER['REQUEST_URI']);
     ?>
 
+    @if ($exp[1] == 'editar-secretaria')
+        <script>
+          $(document).ready(function(){
+            $('#EditarSecretaria').modal('toggle');
+          })
+        </script>
+    @endif
+
     @if ($exp[1] == 'citas')
         <script>
             var date = new Date();
