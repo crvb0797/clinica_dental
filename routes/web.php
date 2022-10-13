@@ -5,6 +5,7 @@ use App\Http\Controllers\ConsultoriosController;
 use App\Http\Controllers\DoctoresController;
 use App\Http\Controllers\InicioController;
 use App\Http\Controllers\PacientesController;
+use App\Http\Controllers\SecretariasController;
 use App\Models\Consultorios;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -57,5 +58,8 @@ Route::get('/ver-doctores/{id}', [DoctoresController::class, 'verDoctores']);
 
 /* Historial de citas pacientes */
 Route::get('/historial', [CitasController::class, 'historial']);
+
+/* Secretarias */
+Route::get('/secretarias', [SecretariasController::class, 'index']);
 
 

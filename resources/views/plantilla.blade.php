@@ -53,6 +53,8 @@
     @include('modulos.menuDoctor')
   @elseif(auth()->user()->rol == "Paciente")
     @include('modulos.menuPaciente')
+  @elseif(auth()->user()->rol == "Administrador")
+   @include('modulos.menuAdministrador')
   @endif
   @yield('content')
 </div>
