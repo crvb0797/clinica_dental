@@ -35,6 +35,12 @@
                     <span>Secretarias</span>
                 </a>
             </li>
+            <li>
+                <a href="{{ url('posts') }}">
+                    <i class="fa fa-th-list"></i>
+                    <span>Publicaciones</span>
+                </a>
+            </li>
         </ul>
     </section>
 </aside>
