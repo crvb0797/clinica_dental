@@ -3,7 +3,7 @@
 @section('content')
     <div class="content-wrapper">
         <section class="content-header">
-            <h1>Doctores del consultorio <br> <b>{{$consultorio->consultorio}}</b></h1>
+            <h1>Doctores del consultorio <br> <b>{{ $consultorio->consultorio }}</b></h1>
         </section>
         <section class="content">
             <div class="box">
@@ -20,35 +20,29 @@
                         </thead>
 
                         <tbody>
-                            @foreach ($doctores as $doctor)
-                                <tr>
-                                    <td>{{$doctor->name}}</td>
-                                    <td>{{$doctor->email}}</td>
-                                    @if ($doctor->telefono != "")
-                                        <td>{{$doctor->telefono}}</td>
-                                    @else
-                                        <td>NA</td>
-                                    @endif
-                                    @foreach ($horarios as $horario)
-                                        @if ($horario->id_doctor == $doctor->id)
-                                            <td>{{$horario->horaInicio}} - {{$horario->horaFin}}</td>
+
+                            @foreach ($horarios as $horario)
+                                @foreach ($doctores as $doctor)
+                                    @if ($horario->id_doctor == $doctor->id)
+                                        <tr>
+                                            <td>{{ $doctor->name }}</td>
+                                            <td>{{ $doctor->email }}</td>
+                                            @if ($doctor->telefono != '')
+                                                <td>{{ $doctor->telefono }}</td>
+                                            @else
+                                                <td>NA</td>
+                                            @endif
+
+
+                                            <td>{{ $horario->horaInicio }} - {{ $horario->horaFin }}</td>
                                             <td>
                                                 <a href="#">
                                                     <button class="btn btn-primary">Agenda de citas</button>
                                                 </a>
                                             </td>
-                                        @else
-                                            <td class="text-danger">Aun no registrado</td>
-                                            <td>
-                                                <a href="#">
-                                                    <button class="btn btn-primary" disabled>Agenda de citas</button>
-                                                </a>
-                                            </td>
-                                        @endif
-                                    @endforeach
-                                    
-
-                                </tr>
+                                    @endif
+                                    </tr>
+                                @endforeach
                             @endforeach
                         </tbody>
                     </table>
