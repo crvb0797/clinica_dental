@@ -299,7 +299,13 @@ $('#select2').select2();
         }
 
         if(diaActual <= fecha[0]){
-        $('#CitaModal').modal();
+
+          if("{{auth()->user()->rol}}" == "Doctor"){
+            $('#CitaModal').modal();
+          }else if("{{auth()->user()->rol}}" == "Paciente"){
+            $('#Cita').modal();
+          }
+          
         }
 
         $("#Fecha").val(fecha[0]);

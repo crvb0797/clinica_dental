@@ -145,4 +145,39 @@
             </div>
         </div>
     </div>
+
+    <div class="modal fade" id="Cita">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form action="" method="POST">
+                    <div class="modal-body">
+                        <div class="box-body">
+                            <div class="form-group">
+                                <input type="" name="id_doctor" value="5">
+                                <input type="" name="id_paciente" value="">
+                            </div>
+
+                            <div class="form-group">
+                                <h2>Fecha:</h2>
+                                <input type="text" id="FechaP" class="form-control input-lg" readonly>
+                            </div>
+                            <div class="form-group">
+                                <h2>Hora:</h2>
+                                <input type="text" id="HoraP" class="form-control input-lg" readonly>
+                            </div>
+
+                            <div class="form-group">
+                                <input type="" id="fyhInicioP" name="fyhInicioP" class="form-control input-lg" readonly>
+                                <input type="" id="fyhFinP" name="fyhFinP" class="form-control input-lg" readonly>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-primary" type="submit">Pedir Cita</button>
+                        <button class="btn btn-danger" type="button" data-dismiss="modal">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 @endsection
