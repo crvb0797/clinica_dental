@@ -17,6 +17,11 @@ class InicioController extends Controller
         return view('modulos.Inicio');
     }
 
+    public function datosCreate()
+    {
+        return view('modulos.misDatos');
+    }
+
     /**
      * Show the form for creating a new resource.
      *

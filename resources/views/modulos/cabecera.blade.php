@@ -22,7 +22,7 @@
                     <ul class="dropdown-menu">
                         <li class="user-footer">
                             <div class="pull-left">
-                                <a href="#" class="btn btn-primary">Mis datos</a>
+                                <a href="{{url('mis-datos')}}" class="btn btn-primary">Mis datos</a>
                             </div>
     
                             <div class="pull-right">

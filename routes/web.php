@@ -67,5 +67,8 @@ Route::get('/eliminar-secretaria/{id}', [SecretariasController::class, 'destroy'
 Route::get('/editar-secretaria/{id}', [SecretariasController::class, 'show']);
 Route::put('/actualizar-secretaria/{id}', [SecretariasController::class, 'update']);
 
+/* Mis datos */
+Route::get('mis-datos', [InicioController::class, 'datosCreate']);
+
 
 
