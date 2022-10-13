@@ -31,9 +31,16 @@
                     </div>
 
                     <div class="col-md-6">
-
+                        <img class="img-responsive" src="{{asset('storage/'.$inicio->logo)}}" width="200px" alt="Logo">
                     </div>
                 </div>
+
+                @if (auth()->user()->rol == "Administrador")
+                    <div class="box-footer">
+                        <a href="{{url('inicio-editar')}}"><button class="btn btn-primary btn-lg">Editar <i class="fa fa-pencil"></i></button></a>
+                    </div>
+                @endif
+
             </div>
         </section>
     </div>

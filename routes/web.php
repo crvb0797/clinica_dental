@@ -27,6 +27,8 @@ Route::get('/inicio', [InicioController::class, 'index']);
 /* Mis datos */
 Route::get('mis-datos', [InicioController::class, 'datosCreate']);
 Route::put('mis-datos', [InicioController::class, 'datosUpdate']);
+Route::get('inicio-editar', [InicioController::class, 'edit']);
+Route::put('inicio-editar', [InicioController::class, 'update']);
 
 /* Consultorios */
 Route::get('/consultorios', [ConsultoriosController::class, 'index']);

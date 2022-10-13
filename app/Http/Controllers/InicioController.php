@@ -6,6 +6,7 @@ use App\Models\Inicio;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 
 class InicioController extends Controller
 {
@@ -85,5 +86,33 @@ class InicioController extends Controller
     }
 
 
-    /* Otra función */
+    public function edit()
+    {
+        $inicio = Inicio::find(1);
+
+        return view('modulos.editarInicio')->with('inicio', $inicio);
+    }
+
+    public function update(Request $request)
+    {
+        $datos = request();
+        $inicio = Inicio::find(1);
+
+        $inicio->dias = $datos["dias"];
+        $inicio->horaInicio = $datos["horaInicio"];
+        $inicio->horaFin = $datos["horaFin"];
+        $inicio->direccion = $datos["direccion"];
+        $inicio->telefono = $datos["telefono"];
+        $inicio->email = $datos["email"];
+
+        if (request('logoN')) {
+            Storage::delete('public/'.$inicio->logo);
+            $rutaImg = $request['logoN']->store('inicio', 'public');
+            $inicio->logo = $rutaImg;
+        }
+
+        $inicio->save();
+
+        return redirect('inicio-editar');
+    }
 }
