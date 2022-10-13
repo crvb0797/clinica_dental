@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Secretarias;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class SecretariasController extends Controller
 {
@@ -21,36 +22,28 @@ class SecretariasController extends Controller
         return view('modulos.Secretarias', compact('secretarias'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
-    }
+        $datos = request()->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'max:255', 'email', 'unique:users'],
+            'password' => ['required', 'string', 'min:3'],
+            'documento' => ['string'],
+            'telefono' => ['string']
+        ]);
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Secretarias  $secretarias
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Secretarias $secretarias)
-    {
-        //
+        $secretarias = Secretarias::create([
+            'name'=>$datos["name"],
+            'email'=>$datos["email"],
+            'password'=>Hash::make($datos["password"]),
+            'documento'=>$datos["documento"],
+            'telefono'=>$datos["telefono"],
+            'id_consultorio' => 0,
+            'rol' => "Secretaria",
+            'sexo' => ''
+        ]); 
+        
+        return redirect('secretarias')->with('secretariaCreada', 'si');
     }
 
     /**
@@ -82,8 +75,10 @@ class SecretariasController extends Controller
      * @param  \App\Models\Secretarias  $secretarias
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Secretarias $secretarias)
+    public function destroy($id)
     {
-        //
+        Secretarias::destroy($id);
+
+        return redirect('secretarias');
     }
 }

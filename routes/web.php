@@ -7,6 +7,7 @@ use App\Http\Controllers\InicioController;
 use App\Http\Controllers\PacientesController;
 use App\Http\Controllers\SecretariasController;
 use App\Models\Consultorios;
+use App\Models\Secretarias;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -61,5 +62,8 @@ Route::get('/historial', [CitasController::class, 'historial']);
 
 /* Secretarias */
 Route::get('/secretarias', [SecretariasController::class, 'index']);
+Route::post('/secretarias/', [SecretariasController::class, 'store']);
+Route::get('/eliminar-secretaria/{id}', [SecretariasController::class, 'destroy']);
+
 
 

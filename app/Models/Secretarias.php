@@ -10,4 +10,17 @@ class Secretarias extends Model
     use HasFactory;
 
     protected $table = 'users';
+
+    protected $fillable = [
+        'name',
+        'email',
+        'documento',
+        'telefono',
+        'password',
+        'id_consultorio',
+        'sexo',
+        'rol'
+    ];
+
+    public $timestamps = false;
 }
