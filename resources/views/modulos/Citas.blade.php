@@ -149,12 +149,18 @@
     <div class="modal fade" id="Cita">
         <div class="modal-dialog">
             <div class="modal-content">
-                <form action="" method="POST">
+                <form method="POST">
+                    @csrf
                     <div class="modal-body">
                         <div class="box-body">
                             <div class="form-group">
-                                <input type="" name="id_doctor" value="5">
-                                <input type="" name="id_paciente" value="">
+                                <?php
+                                    $exp = explode("/", $_SERVER["REQUEST_URI"]);
+
+                                    echo '<input type="hidden" name="id_doctor" value="'.$exp[2].'">';
+                                ?>
+                                
+                                <input type="hidden" name="id_paciente" value="{{auth()->user()->id}}">
                             </div>
 
                             <div class="form-group">
@@ -167,8 +173,8 @@
                             </div>
 
                             <div class="form-group">
-                                <input type="" id="fyhInicioP" name="fyhInicioP" class="form-control input-lg" readonly>
-                                <input type="" id="fyhFinP" name="fyhFinP" class="form-control input-lg" readonly>
+                                <input type="hidden" id="FyHinicioP" name="FyHinicio" class="form-control input-lg" readonly>
+                                <input type="hidden" id="FyHfinalP" name="FyHfinal" class="form-control input-lg" readonly>
                             </div>
                         </div>
                     </div>

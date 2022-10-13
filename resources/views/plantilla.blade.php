@@ -312,6 +312,11 @@ $('#select2').select2();
         $("#Hora").val(hora1[0]+":00:00");
         $("#FyHinicio").val(fecha[0]+ " " +hora1[0]+":00:00");
         $("#FyHfinal").val(fecha[0]+ " " +HF);
+
+        $("#FechaP").val(fecha[0]);
+        $("#HoraP").val(hora1[0]+":00:00");
+        $("#FyHinicioP").val(fecha[0]+ " " +hora1[0]+":00:00");
+        $("#FyHfinalP").val(fecha[0]+ " " +HF);
       },
 
       eventClick:function(calEvent,jsEvent,view){
