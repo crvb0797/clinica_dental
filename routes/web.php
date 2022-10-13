@@ -53,7 +53,9 @@ Route::delete('borrar-cita', [CitasController::class, 'destroy']);
 Route::get('/ver-consultorios', [ConsultoriosController::class, 'verConsultorios']);
 
 /* Ver doctores como pacientes */
-
 Route::get('/ver-doctores/{id}', [DoctoresController::class, 'verDoctores']);
+
+/* Historial de citas pacientes */
+Route::get('/historial', [CitasController::class, 'historial']);
 
 

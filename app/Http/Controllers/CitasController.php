@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Citas;
+use App\Models\Consultorios;
 use App\Models\Doctores;
 use App\Models\Pacientes;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -62,5 +64,19 @@ class CitasController extends Controller
         DB::table('citas')->whereId(request('idCita'))->delete();
 
         return redirect('citas/'.request('idDoctor'));
+    }
+
+    public function historial()
+    {
+
+        if (auth()->user()->rol != "Paciente") {
+            return view('modulos.inicio');
+        }else{
+            $citas = Citas::all()->where('id_paciente', auth()->user()->id);
+            $doctores = User::all()->where('rol', 'Doctor');
+            $consultorios = Consultorios::all();
+            return view("modulos.Historial", compact('citas', 'doctores', 'consultorios'));
+        }
+
     }
 }
