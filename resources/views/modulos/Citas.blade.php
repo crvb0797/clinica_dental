@@ -3,46 +3,60 @@
 @section('content')
     <div class="content-wrapper">
         <section class="content-header">
+
+            @if ($doctor->sexo == "Femenino")
+                <h2>Doctora: {{$doctor->name}}</h2>
+            @else
+                <h2>Doctor: {{$doctor->name}}</h2>
+            @endif
+
             <h2>Horarios</h2>
 
             @if ($horarios == null)
-                <form action="{{url('horarios')}}" method="POST">
-                    @csrf
-                    <div class="row">
-                        <div class="col-md-2">
-                            Desde <input type="time" class="form-control" name="horaInicio">
-                        </div>
-                        <div class="col-md-2">
-                            Hasta <input type="time" class="form-control" name="horaFin">
-                        </div>
 
-                        <br>
+                @if (auth()->user()->rol == "Doctor")
+                    <form action="{{url('horarios')}}" method="POST">
+                        @csrf
+                        <div class="row">
+                            <div class="col-md-2">
+                                Desde <input type="time" class="form-control" name="horaInicio">
+                            </div>
+                            <div class="col-md-2">
+                                Hasta <input type="time" class="form-control" name="horaFin">
+                            </div>
 
-                        <div class="col-md-1">
-                            <button class="btn btn-primary" type="submit">Guardar <i class="fa fa-plus"></i></button>
+                            <br>
+
+                            <div class="col-md-1">
+                                <button class="btn btn-primary" type="submit">Guardar <i class="fa fa-plus"></i></button>
+                            </div>
                         </div>
-                    </div>
-                </form>
+                    </form>
+                @endif
             @else
                 @foreach ($horarios as $hora)
-                <form action="{{url('editar-horario/'.$hora->id)}}" method="POST">
-                    @csrf
-                    @method('PUT')
-                    <div class="row">
-                        <div class="col-md-2">
-                            Desde <input type="time" class="form-control" name="horaInicioE" value="{{$hora->horaInicio}}">
+                    @if (auth()->user()->rol == "Doctor")    
+                        <form action="{{url('editar-horario/'.$hora->id)}}" method="POST">
+                        @csrf
+                        @method('PUT')
+                        <div class="row">
+                            <div class="col-md-2">
+                                Desde <input type="time" class="form-control" name="horaInicioE" value="{{$hora->horaInicio}}">
+                            </div>
+                            <div class="col-md-2">
+                                Hasta <input type="time" class="form-control" name="horaFinE" value="{{$hora->horaFin}}">
+                            </div>
+        
+                            <br>
+        
+                            <div class="col-md-1">
+                                <button class="btn btn-primary" type="submit">Editar <i class="fa fa-pencil"></i></button>
+                            </div>
                         </div>
-                        <div class="col-md-2">
-                            Hasta <input type="time" class="form-control" name="horaFinE" value="{{$hora->horaFin}}">
-                        </div>
-    
-                        <br>
-    
-                        <div class="col-md-1">
-                            <button class="btn btn-primary" type="submit">Editar <i class="fa fa-pencil"></i></button>
-                        </div>
-                    </div>
-                </form>    
+                        </form>  
+                    @elseif(auth()->user()->rol == "Paciente")
+                        <h2>{{$hora->horaInicio}} - {{$hora->horaFin}}</h2>
+                    @endif
                 @endforeach
             @endif
         </section>

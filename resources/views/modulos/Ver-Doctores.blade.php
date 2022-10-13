@@ -36,7 +36,7 @@
 
                                             <td>{{ $horario->horaInicio }} - {{ $horario->horaFin }}</td>
                                             <td>
-                                                <a href="#">
+                                                <a href="{{url('citas/'.$doctor->id)}}">
                                                     <button class="btn btn-primary">Agenda de citas</button>
                                                 </a>
                                             </td>
