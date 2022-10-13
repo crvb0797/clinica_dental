@@ -26,7 +26,11 @@
                                 @enderror
 
                                 <h2>Nueva contraseña</h2>
-                                <input class="form-control input-lg" type="text" name="passwordN" value="">
+                                <input class="form-control input-lg" type="text" name="passwordN">
+                                @error('passwordN')
+                                    <p class="alert alert-danger">{{$message}}</p>
+                                @enderror
+                                <input class="form-control input-lg" type="hidden" name="password" value="{{auth()->user()->password}}">
                             </div>
 
                             <div class="col-md-6 col-xs-12">

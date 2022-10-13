@@ -16,7 +16,8 @@ class InicioController extends Controller
 
     public function index()
     {
-        return view('modulos.Inicio');
+        $inicio = Inicio::find(1);
+        return view('modulos.Inicio', compact('inicio'));
     }
 
     public function datosCreate()
@@ -34,7 +35,7 @@ class InicioController extends Controller
                     'telefono' => ['string', 'max:255'],
                     'documento' => ['string', 'max:255'],
                     'email' => ['email', 'required', 'string', 'unique:users'],
-                    'passwordN' => ['string', 'min:3', 'required']
+                    'passwordN' => ['min:3', 'required']
                 ]);
             } else {
                 $datos = request()->validate([
@@ -51,7 +52,7 @@ class InicioController extends Controller
                     'telefono' => ['string', 'max:255'],
                     'documento' => ['string', 'max:255'],
                     'email' => ['email', 'required', 'string'],
-                    'passwordN' => ['string', 'min:3', 'required']
+                    'passwordN' => ['min:3', 'required']
                 ]);
             } else {
                 $datos = request()->validate([
@@ -77,7 +78,6 @@ class InicioController extends Controller
                 'documento' => $datos["documento"],
                 'telefono' => $datos["telefono"],
                 'password' => Hash::make($datos["passwordN"])
-                /* 'password' => $datos["passwordN"] */
             ]);
         }
 
