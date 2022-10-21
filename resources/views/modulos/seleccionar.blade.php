@@ -12,7 +12,7 @@
         <div class="col-lg-3 col-xs-6">
             <div class="small-box" style="background-color: #f781d8; color:white">
                 <div class="inner">
-                    <h3>Secretari</h3>
+                    <h3>Secretaria</h3>
                     <p>Inicie sesión</p>
                 </div>
                 <div class="icon">
