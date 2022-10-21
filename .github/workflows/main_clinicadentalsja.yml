@@ -56,5 +56,5 @@ jobs:
         with:
           app-name: 'ClinicaDentalSJA'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_DC4AAD10C9D94031AE5DA3EC2EA1DB15 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_221936B422614C0992809F5688C2DBF9 }}
           package: .
