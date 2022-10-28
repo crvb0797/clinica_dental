@@ -8,13 +8,15 @@ use App\Http\Controllers\PacientesController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\SecretariasController;
 use App\Models\Consultorios;
+use App\Models\Post;
 use App\Models\Secretarias;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', function () {
-    return view('modulos.seleccionar');
+    $posts = Post::all();
+    return view('modulos.seleccionar')->with('posts', $posts);
 });
 
 /* Route::get('/ingresar', function () {

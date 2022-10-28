@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Inicio;
+use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -18,7 +19,8 @@ class InicioController extends Controller
     public function index()
     {
         $inicio = Inicio::find(1);
-        return view('modulos.Inicio', compact('inicio'));
+        $posts = Post::all();
+        return view('modulos.Inicio', compact('inicio', 'posts'));
     }
 
     public function datosCreate()
