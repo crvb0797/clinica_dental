@@ -36,7 +36,7 @@
                 </a>
             </li>
             <li>
-                <a href="{{ url('posts') }}">
+                <a href="{{ route('admin.posts.index') }}">
                     <i class="fa fa-th-list"></i>
                     <span>Publicaciones</span>
                 </a>

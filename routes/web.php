@@ -5,6 +5,7 @@ use App\Http\Controllers\ConsultoriosController;
 use App\Http\Controllers\DoctoresController;
 use App\Http\Controllers\InicioController;
 use App\Http\Controllers\PacientesController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\SecretariasController;
 use App\Models\Consultorios;
 use App\Models\Secretarias;
@@ -72,7 +73,6 @@ Route::get('/eliminar-secretaria/{id}', [SecretariasController::class, 'destroy'
 Route::get('/editar-secretaria/{id}', [SecretariasController::class, 'show']);
 Route::put('/actualizar-secretaria/{id}', [SecretariasController::class, 'update']);
 
-
-
-
-
+/* Post */
+Route::resource('post', PostController::class)->names('admin.posts');
+Route::get('/eliminar-publicacion/{id}', [PostController::class, 'destroy']);

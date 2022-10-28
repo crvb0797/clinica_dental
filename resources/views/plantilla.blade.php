@@ -180,6 +180,22 @@
                 'success'
             )
         </script>
+    @elseif(session('PostCreado') == 'si')
+    <script>
+        Swal.fire(
+            'La publicación ha sido Creada',
+            '',
+            'success'
+        )
+    </script>
+    @elseif(session('PostActulizado') == 'si')
+    <script>
+        Swal.fire(
+            'La secretaria ha sido actualizada',
+            '',
+            'success'
+        )
+    </script>
     @endif
 
     <script>
@@ -233,6 +249,25 @@
             }).then((result) => {
                 if (result.isConfirmed) {
                     window.location = "eliminar-secretaria/" + Sid;
+                }
+            })
+        });
+
+
+        $('.table').on('click', '.EliminarPublicacion', function() {
+            var Pubid = $(this).attr('Pubid');
+            var Publicacion = $(this).attr('Publicacion');
+            Swal.fire({
+                title: '¿Desea eliminar esta publicación ?',
+                icon: 'warning',
+                showCancelButton: true,
+                cancelButtonText: 'Cancelar',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Elminar',
+                confirmButtonColor: '#3085d6'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location = "eliminar-publicacion/" + Pubid;
                 }
             })
         });
